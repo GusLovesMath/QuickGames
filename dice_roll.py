@@ -1,15 +1,15 @@
 def dice_roll(Count=True, Rolls=False, Hist=False):
-
-    import random as r
-    from collections import Counter
-    import matplotlib.pyplot as pl
-
     """
     A dice simulator the rolls m dice n times.
     Count=True returns the frequency each value appears
     Rolls=True prints the entire list of values rolled
     Hist=True plots a histogram of the rolls
     """
+    
+    import random as r
+    from collections import Counter
+    import matplotlib.pyplot as pl
+
     m = int( input('Number of dice you would like to roll: ') )
     n = int( input(f'Number of times you would like to roll {"{:,}".format(m)} dice: ') )
     
