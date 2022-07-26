@@ -48,7 +48,7 @@ def dice_roll(Count=True, Rolls=False, Hist=False):
         if Hist == True:
             num_bins = m*6
             pl.hist(rolls, bins=num_bins, color='c', edgecolor='black', linewidth=0.5)
-            pl.title(f'Histogram of {"{:,}".format(m)} Dice being Rolled {"{:,}".format(n)} Times')
+            pl.title(f'Histogram of {"{:,}".format(m)} Dice Rolled {"{:,}".format(n)} Times')
             pl.ylabel('Frequency Occured')
             pl.xlabel('Dice Roll Values')
             pl.show()
