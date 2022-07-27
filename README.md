@@ -1,4 +1,4 @@
-Some random smalls games I made.
+Some random small games I made.
 
 DICE ROLL
 Code I wrote that takes in m dice and rolls them m times.
