@@ -20,5 +20,4 @@ def Guess_Number( n=10 ):
             print(f'You guessed the right number, {number}!')
             break
         
-
 #Guess_Number()
