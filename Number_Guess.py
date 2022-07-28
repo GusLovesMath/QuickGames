@@ -1,8 +1,11 @@
 def Guess_Number( n=10 ):
-
+    
+    """
+    Game where you have three tries to guess the right number.
+    """
     import random as r
 
-    number = r.randint( 0 , n + 1)
+    number = r.randint( 0 , n + 1 )
     T = ['first', 'second', 'third']
 
     Guess = 0
