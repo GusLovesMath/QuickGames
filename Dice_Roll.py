@@ -53,4 +53,4 @@ def dice_roll(Count=True, Rolls=False, Hist=False):
             pl.xlabel('Dice Roll Values')
             pl.show()
 
-#dice_roll(Rolls=True, Hist=True, Count=True)
+#dice_roll(Count=True, Rolls=True, Hist=True)
