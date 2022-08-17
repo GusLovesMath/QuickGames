@@ -1,4 +1,4 @@
-def random_walks( Print=True, Hist=False, Stats=False ):
+def random_walks( Print=True, Stats=False, Hist=False ):
     
     import matplotlib.pyplot as pl
     import pandas as pd
@@ -13,6 +13,7 @@ def random_walks( Print=True, Hist=False, Stats=False ):
     m = int( input(f'Number of walkers that will take {n} steps: ') )
 
     print(f'You have choosen {"{:,}".format(m)} walkers that will take {"{:,}".format(n)} steps. \n')
+
 
     # function that goes on one random walk
     def walks():
@@ -37,14 +38,20 @@ def random_walks( Print=True, Hist=False, Stats=False ):
         rand_walks.append( walks()[-1] )
         
 
-
     # printing values of outcome
     if (Print == True and m <= 5000):
         print( rand_walks )
     
     else:
         print('Will only print outcome for number of walkers less than 50.') 
-        
+
+
+    # printing statistics
+    if Stats == True:
+        print('Here are the general statistics:')
+        df = pd.DataFrame(rand_walks)
+        print( df.describe() ) 
+
 
     # plotting histogram of data
     if Hist == True:
@@ -57,11 +64,5 @@ def random_walks( Print=True, Hist=False, Stats=False ):
         pl.grid( alpha=0.1 )
         pl.show()
     
-    # printing statistics
-    if Stats == True:
-        print('Here are the general statistics:')
-        rand_walks = pd.DataFrame(rand_walks)
-        print( rand_walks.describe() )
-        
   
-random_walks( Print=True, Hist=True, Stats=True )
+random_walks( Print=False, Hist=True, Stats=True )
