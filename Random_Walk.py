@@ -36,19 +36,17 @@ def random_walks( Print=True, Hist=False, Stats=False ):
     for i in range( m ):
         rand_walks.append( walks()[-1] )
         
-    if Print == True and m <= 5000:
+
+
+    # printing values of outcome
+    if (Print == True and m <= 5000):
         print( rand_walks )
     
     else:
         print('Will only print outcome for number of walkers less than 50.') 
         
-    # getting last position of each list
-    #last_steps = []
-    
-    #for i in range(m):
-     #   last_steps.append( rand_walks[i][-1] )
-    
 
+    # plotting histogram of data
     if Hist == True:
         pl.figure( figsize=(10, 7.5) )
         pl.hist( rand_walks, bins=np.arange(min(rand_walks), max(rand_walks) + 1, 1),
@@ -59,10 +57,11 @@ def random_walks( Print=True, Hist=False, Stats=False ):
         pl.grid( alpha=0.1 )
         pl.show()
     
+    # printing statistics
     if Stats == True:
         print('Here are the general statistics:')
         rand_walks = pd.DataFrame(rand_walks)
         print( rand_walks.describe() )
         
   
-random_walks( Hist=True, Stats=True )
+random_walks( Print=True, Hist=True, Stats=True )
