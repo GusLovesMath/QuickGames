@@ -1,5 +1,5 @@
 def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
-    
+
     """
     A dice simulator the rolls m dice n times.
     Count=True returns the frequency each value appears.
@@ -16,7 +16,7 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
     m = int( input('Number of dice you would like to roll: ') )
     n = int( input(f'Number of times you would like to roll {"{:,}".format(m)} dice: ') )
     
-    print(f'You have choosen to roll {"{:,}".format(m)} dice {"{:,}".format(n)} times.')
+    print(f'You have choosen to roll {"{:,}".format(m)} dice {"{:,}".format(n)} times.\n')
 
 
     # Restricted amount of dice that can be rolled
