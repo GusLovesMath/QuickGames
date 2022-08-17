@@ -1,4 +1,4 @@
-def random_walks( Hist=False, Stats=False ):
+def random_walks( Print=True, Hist=False, Stats=False ):
     
     import matplotlib.pyplot as pl
     import pandas as pd
@@ -35,6 +35,12 @@ def random_walks( Hist=False, Stats=False ):
 
     for i in range( m ):
         rand_walks.append( walks()[-1] )
+        
+    if Print == True and m <= 5000:
+        print( rand_walks )
+    
+    else:
+        print('Will only print outcome for number of walkers less than 50.') 
         
     # getting last position of each list
     #last_steps = []
