@@ -70,4 +70,4 @@ def random_walks( Print=True, Stats=False, Hist=False ):
         pl.show()
     
   
-random_walks( Print=False, Hist=True, Stats=True )
+random_walks( Print=False, Stats=True, Hist=True )
