@@ -58,7 +58,7 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
 
         # Plots a histogram of values rolled
         if Hist == True:
-            # if using Jupyter Notebooks uncooment this line for better plot display
+            # if using Jupyter Notebooks uncomment this line for better plot display
             #%config InlineBackend.figure_format = 'retina'
             pl.matplotlib.rcParams.update({'font.size': 14})
             pl.figure( figsize=(9, 6.5) )
