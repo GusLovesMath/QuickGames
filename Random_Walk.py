@@ -1,13 +1,16 @@
 def random_walks( Print=True, Stats=False, Hist=False ):
+
+    """
+    A simulator that takes m walkers which take n steps and returns the outcome.
+    Print will print the outcome of the displacements of the walkers.
+    Stats will print the general statistical outcomes.
+    Hist will plot a histogram of the outcomes.
+    """
     
     import matplotlib.pyplot as pl
     import pandas as pd
     import numpy as np
     from random import randint
-    
-    # if using Jupyter Notebooks uncooment this line for better plot display
-    #%config InlineBackend.figure_format = 'retina'
-    pl.matplotlib.rcParams.update({'font.size': 14})
     
     n = int( input(f'Number of steps to take: ') )
     m = int( input(f'Number of walkers that will take {n} steps: ') )
@@ -49,15 +52,17 @@ def random_walks( Print=True, Stats=False, Hist=False ):
     # printing statistics
     if Stats == True:
         print('Here are the general statistics:')
-        df = pd.DataFrame(rand_walks)
+        df = pd.DataFrame( rand_walks )
         print( df.describe() ) 
 
 
     # plotting histogram of data
     if Hist == True:
-        pl.figure( figsize=(10, 7.5) )
-        pl.hist( rand_walks, bins=np.arange(min(rand_walks), max(rand_walks) + 1, 1),
-                        color='C3', edgecolor='black', linewidth=0.5 )
+        # if using Jupyter Notebooks uncooment this line for better plot display
+        #%config InlineBackend.figure_format = 'retina'
+        pl.matplotlib.rcParams.update({'font.size': 14})
+        pl.figure( figsize=(9, 6.5) )
+        pl.hist(rand_walks, bins=np.arange(min(rand_walks), max(rand_walks) + 1, 1), color='C3', edgecolor='black', linewidth=0.5)
         pl.title(f'Displacements of {"{:,}".format(m)} Random Walkers Taking {"{:,}".format(n)} of Steps')
         pl.xlabel('Distance from Origin of The Walkers')
         pl.ylabel('Number of Occurances')

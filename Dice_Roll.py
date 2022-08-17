@@ -1,15 +1,17 @@
 def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
+    
     """
     A dice simulator the rolls m dice n times.
-    Count=True returns the frequency each value appears
-    Rolls=True prints the entire list of values rolled
-    Hist=True plots a histogram of the rolls
+    Count=True returns the frequency each value appears.
+    Rolls=True prints the entire list of values rolled.
+    Hist=True plots a histogram of the rolls.
     """
     
-    import random as r
     from collections import Counter
     import matplotlib.pyplot as pl
     import pandas as pd
+    import random as r
+    import numpy as np
 
     m = int( input('Number of dice you would like to roll: ') )
     n = int( input(f'Number of times you would like to roll {"{:,}".format(m)} dice: ') )
@@ -56,11 +58,16 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
 
         # Plots a histogram of values rolled
         if Hist == True:
-            num_bins = 6 * m
-            pl.hist(rolls, bins=num_bins, color='c', edgecolor='black', linewidth=0.5)
+            # if using Jupyter Notebooks uncooment this line for better plot display
+            #%config InlineBackend.figure_format = 'retina'
+            pl.matplotlib.rcParams.update({'font.size': 14})
+            pl.figure( figsize=(9, 6.5) )
+            pl.hist(rolls, bins=np.arange(min(rolls), max(rolls) + 1, 1), color='c', edgecolor='black', linewidth=0.5)
             pl.title(f'Histogram of {"{:,}".format(m)} Dice Rolled {"{:,}".format(n)} Times')
             pl.ylabel('Frequency Occured')
             pl.xlabel('Dice Roll Values')
+            pl.grid( alpha=0.1 )
             pl.show()
 
-#dice_roll(Count=True, Rolls=True, Hist=True)
+
+dice_roll(Count=True, Rolls=True, Stats=True, Hist=True)
