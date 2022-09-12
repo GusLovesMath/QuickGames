@@ -28,7 +28,7 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
 
         # Goes through n rolls and sums them for the amount if m dice rolled
         for i in range(n):
-            rolls.append( sum([r.randint(1, 6) for dices in range(m)]) )
+            rolls.append(sum([r.randint(1, 6) for dices in range(m)]))
 
         if  n < 20 or (Rolls == True and n <= 750):
             print( rolls )
@@ -43,7 +43,7 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
 
         # Counts the frequency of values rolled
         if Count is True and m <= 40:
-            orderd = Counter( rolls )
+            orderd = Counter(rolls)
             print( sorted(orderd.items(), key=lambda i: i[0]) )   # orders rolls from smalles rolled to greatest with its frequency 
         else:
             print('Counter is unavailable for number of dice greater than 40.')
@@ -52,7 +52,7 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
         # printing statistics
         if Stats is True:
             print('Here are the general statistics:')
-            df = pd.DataFrame( rolls )
+            df = pd.DataFrame(rolls)
             print( df.describe() ) 
 
 
@@ -61,12 +61,12 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
             # if using Jupyter Notebooks uncomment this line for better plot display
             #%config InlineBackend.figure_format = 'retina'
             pl.matplotlib.rcParams.update({'font.size': 14})
-            pl.figure( figsize=(9, 6.5) )
+            pl.figure(figsize=(9, 6.5))
             pl.hist(rolls, bins=np.arange(min(rolls), max(rolls) + 1, 1), color='c', edgecolor='black', linewidth=0.5)
             pl.title(f'Histogram of {"{:,}".format(m)} Dice Rolled {"{:,}".format(n)} Times')
             pl.ylabel('Frequency Occured')
             pl.xlabel('Dice Roll Values')
-            pl.grid( alpha=0.1 )
+            pl.grid(alpha=0.1)
             pl.show()
 
 

@@ -12,15 +12,15 @@ def random_walks( Print=True, Stats=False, Hist=False ):
     import numpy as np
     from random import randint
     
-    n = int( input(f'Number of steps to take: ') )
-    m = int( input(f'Number of walkers that will take {n} steps: ') )
+    n = int(input(f'Number of steps to take: '))
+    m = int(input(f'Number of walkers that will take {n} steps: '))
 
     print(f'You have choosen {"{:,}".format(m)} walkers that will take {"{:,}".format(n)} steps. \n')
 
 
     # function that goes on one random walk
     def walks():
-        steps = np.zeros( n )
+        steps = np.zeros(n)
         
         for i in range(1 , n):
             step = randint(0, 1)
@@ -37,13 +37,13 @@ def random_walks( Print=True, Stats=False, Hist=False ):
     # going through m random walks with n steps.
     rand_walks = []
 
-    for i in range( m ):
+    for i in range(m):
         rand_walks.append( walks()[-1] )
         
 
     # printing values of outcome
     if (Print is True and m <= 5000):
-        print( rand_walks )
+        print(rand_walks)
     
     else:
         print('Will only print outcome for number of walkers less than 50.') 
@@ -52,8 +52,8 @@ def random_walks( Print=True, Stats=False, Hist=False ):
     # printing statistics
     if Stats is True:
         print('Here are the general statistics:')
-        df = pd.DataFrame( rand_walks )
-        print( df.describe() ) 
+        df = pd.DataFrame(rand_walks)
+        print(df.describe()) 
 
 
     # plotting histogram of data
@@ -61,12 +61,12 @@ def random_walks( Print=True, Stats=False, Hist=False ):
         # if using Jupyter Notebooks uncomment this line for better plot display
         #%config InlineBackend.figure_format = 'retina'
         pl.matplotlib.rcParams.update({'font.size': 14})
-        pl.figure( figsize=(9, 6.5) )
+        pl.figure(figsize=(9, 6.5))
         pl.hist(rand_walks, bins=np.arange(min(rand_walks), max(rand_walks) + 1, 1), color='C3', edgecolor='black', linewidth=0.5)
         pl.title(f'Displacements of {"{:,}".format(m)} Random Walkers Taking {"{:,}".format(n)} of Steps')
         pl.xlabel('Distance from Origin of The Walkers')
         pl.ylabel('Number of Occurances')
-        pl.grid( alpha=0.1 )
+        pl.grid(alpha=0.1)
         pl.show()
     
   
