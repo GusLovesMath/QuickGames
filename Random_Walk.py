@@ -42,7 +42,7 @@ def random_walks( Print=True, Stats=False, Hist=False ):
         
 
     # printing values of outcome
-    if (Print == True and m <= 5000):
+    if (Print is True and m <= 5000):
         print( rand_walks )
     
     else:
@@ -50,14 +50,14 @@ def random_walks( Print=True, Stats=False, Hist=False ):
 
 
     # printing statistics
-    if Stats == True:
+    if Stats is True:
         print('Here are the general statistics:')
         df = pd.DataFrame( rand_walks )
         print( df.describe() ) 
 
 
     # plotting histogram of data
-    if Hist == True:
+    if Hist is True:
         # if using Jupyter Notebooks uncomment this line for better plot display
         #%config InlineBackend.figure_format = 'retina'
         pl.matplotlib.rcParams.update({'font.size': 14})
@@ -70,4 +70,4 @@ def random_walks( Print=True, Stats=False, Hist=False ):
         pl.show()
     
   
-random_walks( Print=False, Stats=True, Hist=True )
+random_walks( Print=True, Stats=True, Hist=True )
