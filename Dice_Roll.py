@@ -42,7 +42,7 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
 
 
         # Counts the frequency of values rolled
-        if Count == True and m <= 40:
+        if Count is True and m <= 40:
             orderd = Counter( rolls )
             print( sorted(orderd.items(), key=lambda i: i[0]) )   # orders rolls from smalles rolled to greatest with its frequency 
         else:
@@ -50,14 +50,14 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
 
 
         # printing statistics
-        if Stats == True:
+        if Stats is True:
             print('Here are the general statistics:')
             df = pd.DataFrame( rolls )
             print( df.describe() ) 
 
 
         # Plots a histogram of values rolled
-        if Hist == True:
+        if Hist is True:
             # if using Jupyter Notebooks uncomment this line for better plot display
             #%config InlineBackend.figure_format = 'retina'
             pl.matplotlib.rcParams.update({'font.size': 14})
