@@ -13,8 +13,8 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
     import random as r
     import numpy as np
 
-    m = int( input('Number of dice you would like to roll: ') )
-    n = int( input(f'Number of times you would like to roll {"{:,}".format(m)} dice: ') )
+    m = int(input('Number of dice you would like to roll: '))
+    n = int(input(f'Number of times you would like to roll {"{:,}".format(m)} dice: '))
     
     print(f'You have choosen to roll {"{:,}".format(m)} dice {"{:,}".format(n)} times.\n')
 

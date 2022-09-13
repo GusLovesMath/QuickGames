@@ -1,4 +1,4 @@
-def random_walks( Print=True, Stats=False, Hist=False ):
+def random_walks(Print=True, Stats=False, Hist=False):
 
     """
     A simulator that takes m walkers which take n steps and returns the outcome.
@@ -38,7 +38,7 @@ def random_walks( Print=True, Stats=False, Hist=False ):
     rand_walks = []
 
     for i in range(m):
-        rand_walks.append( walks()[-1] )
+        rand_walks.append(walks()[-1])
         
 
     # printing values of outcome
@@ -70,4 +70,4 @@ def random_walks( Print=True, Stats=False, Hist=False ):
         pl.show()
     
   
-random_walks( Print=True, Stats=True, Hist=True )
+random_walks(Print=True, Stats=True, Hist=True)

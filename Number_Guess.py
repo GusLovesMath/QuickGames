@@ -1,4 +1,4 @@
-def Guess_Number( n=10 ):
+def Guess_Number(n=10):
     
     """
     Game where you have three tries to guess the right number.
