@@ -6,7 +6,7 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
     Rolls=True prints the entire list of values rolled.
     Hist=True plots a histogram of the rolls.
     """
-    
+
     from collections import Counter
     import matplotlib.pyplot as pl
     import pandas as pd
@@ -15,9 +15,7 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
 
     m = int(input('Number of dice you would like to roll: '))
     n = int(input(f'Number of times you would like to roll {"{:,}".format(m)} dice: '))
-    
     print(f'You have choosen to roll {"{:,}".format(m)} dice {"{:,}".format(n)} times.\n')
-
 
     # Restricted amount of dice that can be rolled
     if m > 1200:
@@ -30,8 +28,8 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
         for i in range(n):
             rolls.append(sum([r.randint(1, 6) for dices in range(m)]))
 
-        if  n < 20 or (Rolls == True and n <= 750):
-            print( rolls )
+        if n < 20 or (Rolls is True and n <= 750):
+            print(rolls)
 
         else:
             vals = rolls[:10] + ['....'] + rolls[-10:]
@@ -40,24 +38,22 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
             if n > 750:
                 print('Will not show list of values for number of rolls greater than 750.')
 
-
         # Counts the frequency of values rolled
-        if Count is True and m <= 40:
+        if Count and m <= 40:
             orderd = Counter(rolls)
-            print( sorted(orderd.items(), key=lambda i: i[0]) )   # orders rolls from smalles rolled to greatest with its frequency 
+            # orders rolls from smalles rolled to greatest with its frequency
+            print(sorted(orderd.items(), key=lambda i: i[0]))
         else:
             print('Counter is unavailable for number of dice greater than 40.')
 
-
         # printing statistics
-        if Stats is True:
+        if Stats:
             print('Here are the general statistics:')
             df = pd.DataFrame(rolls)
-            print( df.describe() ) 
-
+            print(df.describe())
 
         # Plots a histogram of values rolled
-        if Hist is True:
+        if Hist:
             # if using Jupyter Notebooks uncomment this line for better plot display
             #%config InlineBackend.figure_format = 'retina'
             pl.matplotlib.rcParams.update({'font.size': 14})
@@ -68,6 +64,5 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
             pl.xlabel('Dice Roll Values')
             pl.grid(alpha=0.1)
             pl.show()
-
 
 dice_roll(Count=True, Rolls=True, Stats=True, Hist=True)
