@@ -8,8 +8,6 @@ def random_walks(Print=True, Stats=False, Hist=False):
     Hist will plot a histogram of the outcomes.
     """
 
-    import matplotlib.pyplot as pl
-    import pandas as pd
     import numpy as np
     from random import randint
 
@@ -47,12 +45,14 @@ def random_walks(Print=True, Stats=False, Hist=False):
 
     # printing statistics
     if Stats:
+        from pandas import DataFrame
         print('Here are the general statistics:')
-        df = pd.DataFrame(rand_walks)
+        df = DataFrame(rand_walks)
         print(df.describe())
 
     # plotting histogram of data
     if Hist:
+        import matplotlib.pyplot as pl
         # if in Jupyter Notebooks uncomment line for better plot display
         #%config InlineBackend.figure_format = 'retina'
         pl.matplotlib.rcParams.update({'font.size': 14})

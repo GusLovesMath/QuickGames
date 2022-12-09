@@ -6,16 +6,13 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
     Rolls=True prints the entire list of values rolled.
     Hist=True plots a histogram of the rolls.
     """
-
-    from collections import Counter
-    import matplotlib.pyplot as pl
-    import pandas as pd
-    import random as r
-    import numpy as np
+    
+    from random import randint
 
     m = int(input('Number of dice you would like to roll: '))
     n = int(input(f'Number of times you would like to roll {"{:,}".format(m)} dice: '))
     print(f'You have choosen to roll {"{:,}".format(m)} dice {"{:,}".format(n)} times.\n')
+
 
     # Restricted amount of dice that can be rolled
     if m > 1200:
@@ -26,7 +23,7 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
 
         # Goes through n rolls and sums them for the amount if m dice rolled
         for i in range(n):
-            rolls.append(sum([r.randint(1, 6) for dices in range(m)]))
+            rolls.append(sum([randint(1, 6) for dices in range(m)]))
 
         if n < 20 or (Rolls is True and n <= 750):
             print(rolls)
@@ -38,22 +35,30 @@ def dice_roll(Count=True, Rolls=False, Stats=True, Hist=False):
             if n > 750:
                 print('Will not show list of values for number of rolls greater than 750.')
 
+
         # Counts the frequency of values rolled
         if Count and m <= 40:
+            from collections import Counter
             orderd = Counter(rolls)
             # orders rolls from smalles rolled to greatest with its frequency
             print(sorted(orderd.items(), key=lambda i: i[0]))
+            
         else:
             print('Counter is unavailable for number of dice greater than 40.')
 
+
         # printing statistics
         if Stats:
+            from pandas import DataFrame
             print('Here are the general statistics:')
-            df = pd.DataFrame(rolls)
+            df = DataFrame(rolls)
             print(df.describe())
+
 
         # Plots a histogram of values rolled
         if Hist:
+            import matplotlib.pyplot as pl
+            import numpy as np
             # if using Jupyter Notebooks uncomment this line for better plot display
             #%config InlineBackend.figure_format = 'retina'
             pl.matplotlib.rcParams.update({'font.size': 14})
